@@ -1,7 +1,12 @@
 <template>
   <div>
     <Header/>
-    <router-view/>
+      <div class="ydc-flex">
+        <div class="ydc-column2">12112</div>
+        <div class="ydc-column8">
+          <router-view/>
+        </div>
+      </div>
     <Footer/>
   </div>
 </template>
@@ -17,5 +22,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .ydc-flex{
+    display: flex;
+    width:1180px;
+    margin:20px auto;
+  }
+  .ydc-column2 {
+    flex: 0 0 20.83333%;
+  }
+  .ydc-column8 {
+    flex: 0 0 79.16667%;
+  }
 </style>
