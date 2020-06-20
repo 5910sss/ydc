@@ -2,7 +2,7 @@
   <div>
     <Header/>
       <div class="ydc-flex">
-        <div class="ydc-column2">12112</div>
+        <div class="ydc-column2"><Menu/></div>
         <div class="ydc-column8">
           <router-view/>
         </div>
@@ -14,10 +14,11 @@
 <script>
 import Header from '@/components/header.vue'
 import Footer from './components/footer.vue'
+import Menu from '@/components/menu.vue'
 export default {
   name: 'App',
   components: {
-    Header, Footer
+    Header, Footer, Menu
   }
 }
 </script>
