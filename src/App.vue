@@ -1,13 +1,18 @@
 <template>
   <div>
-    <Header/>
-      <div class="ydc-flex">
-        <div class="ydc-column2"><Menu/></div>
-        <div class="ydc-column8">
-          <router-view/>
+    <div v-if="$route.name=='login' || $route.name=='reg'">
+      <router-view/>
+    </div>
+    <div v-if="$route.name!='login' && $route.name!='reg'">
+      <Header/>
+        <div class="ydc-flex">
+          <div class="ydc-column2"><Menu/></div>
+          <div class="ydc-column8">
+            <router-view/>
+          </div>
         </div>
-      </div>
-    <Footer/>
+      <Footer/>
+    </div>
   </div>
 </template>
 
@@ -19,6 +24,11 @@ export default {
   name: 'App',
   components: {
     Header, Footer, Menu
+  },
+  created () {
+    if (!localStorage.token) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
@@ -31,6 +41,7 @@ export default {
   }
   .ydc-column2 {
     flex: 0 0 20.83333%;
+    padding: 0 10px;
   }
   .ydc-column8 {
     flex: 0 0 79.16667%;
