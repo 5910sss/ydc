@@ -40,7 +40,12 @@ router.post('/publish', async ctx=>{
       ctx.body={err:1, msg: 'token expired'}
     }else{
       console.log(post['catalogs'])
-      let catalogs=post['catalogs'].join(',');
+      let catalogs=[]
+      if(post['catalogs'].length>1){
+        catalogs=post['catalogs'].join(',')
+      }else{
+        catalogs=Array.from(post['catalogs'])
+      }
 
       //验证
       await ctx.db.query(
